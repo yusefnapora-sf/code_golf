@@ -11,7 +11,6 @@ for l in open(sys.argv[1]):
     v=1000
     while n > 0:
         t[i], n = divmod(n, v)
-        v//=D[i%2]
 
         if t[i] < 4:
             s += A[i] * t[i]
@@ -19,5 +18,6 @@ for l in open(sys.argv[1]):
             y = t[i-1]
             s = s[:len(s)-y] + A[i] + A[i-1-y]
 
+        v //= D[i%2]
         i+=1
     print(s)
