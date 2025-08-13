@@ -1,7 +1,7 @@
 import sys
 
 A=list('MDCLXVI')
-V=[1000,500,100,50,10,5,1]
+D=(2,5)
 
 with open(sys.argv[1]) as f:
     for l in f:
@@ -9,8 +9,10 @@ with open(sys.argv[1]) as f:
         s=''
         t=[0] * 7
         i=0
+        v=1000
         while n > 0:
-            t[i], n = divmod(n, V[i])
+            t[i], n = divmod(n, v)
+            v=v//D[i%2]
             i+=1
 
         for i in range(7):
