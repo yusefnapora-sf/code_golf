@@ -10,7 +10,7 @@ for l in open(sys.argv[1]):
     i=0
     v=1000
     while n > 0:
-        t[i], n = divmod(n, v)
+        t[i], n = (n//v, n%v)
 
         if t[i] < 4:
             s += A[i] * t[i]
