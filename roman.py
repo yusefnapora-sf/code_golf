@@ -6,18 +6,19 @@ D=(2,5)
 for l in open(sys.argv[1]):
     n=int(l)
     s=''
-    t=[0] * 7
+    t=[]
     i=0
     v=1000
     while n > 0:
-        t[i], n = (n//v, n%v)
+        f, n = (n//v, n%v)
 
-        if t[i] < 4:
-            s += A[i] * t[i]
+        if f < 4:
+            s += A[i] * f
         else:
             y = t[i-1]
             s = s[:len(s)-y] + A[i] + A[i-1-y]
 
         v //= D[i%2]
+        t += [f]
         i+=1
     print(s)
