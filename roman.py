@@ -12,10 +12,11 @@ for l in open(sys.argv[1]):
     while n > 0:
         t[i], n = (n//v, n%v)
 
-        s += A[i] * t[i]
-        q = t[i] // 4
-        x = t[i-1]
-        s = s[:len(s)-(3-x)*q] + A[i-1-x]*q
+        if t[i] < 4:
+            s += A[i] * t[i]
+        else:
+            y = t[i-1]
+            s = s[:len(s)-y] + A[i] + A[i-1-y]
 
         v //= D[i%2]
         i+=1
